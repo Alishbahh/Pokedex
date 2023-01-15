@@ -1,7 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
 
-
 import { CardColours } from "../assets/colors";
 import { LinearGradient } from "expo-linear-gradient";
 
@@ -50,7 +49,7 @@ const styles = StyleSheet.create({
   name: {
     fontSize: 25,
     alignSelf: "center",
-    fontStyle: "italic",
+
     textTransform: "capitalize",
     color: "white",
   },

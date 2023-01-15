@@ -3,15 +3,11 @@ import {
   View,
   Text,
   TouchableOpacity,
-  StyleSheet,
   Pressable,
 } from "react-native";
 import {
   Button,
-  Stack,
   Icon,
-  Center,
-  NativeBaseProvider,
   FlatList,
   Box,
   Select,
@@ -34,34 +30,26 @@ export const HomeScreen = ({ navigation, route }) => {
     // THIS FUNCTION IS USED TO CHECK WHETHER POKEMON HAS BEEN FAVVED
     // OR NOT(SO I CAN INITALIZE THE STATE OF
     // FAV BUTTON ACCORDINGLY IN DETAILS SCREEN)
-    console.log("FAVOURITES", Favourites);
-    console.log("item id inside favourites", id);
+
     fav = false;
     for (let i = 0; i < Favourites.length; i++) {
-      console.log("Favourite item id", Favourites[i].id);
-      console.log("pokemon id", id);
       if (Favourites[i].id == id) {
-        console.log("inside if cosidtion");
         fav = true;
-        console.log("fav", fav);
       }
     }
-    console.log("fav before redturn", fav);
+
     return fav;
   };
 
   useEffect(() => {
     getPokemonList(pageSize, offset).then((res) => {
-      //   console.log("res", res);
       setPokemonList(res.results);
     });
   }, [pageSize]);
 
   useEffect(() => {
     getPokemonList(pageSize, offset).then((res) => {
-      //   console.log("res", res);
       setPokemonList(res.results);
-      // console.log("Pokemon list", pokemonList);
     });
   }, [offset]);
 
@@ -103,7 +91,6 @@ export const HomeScreen = ({ navigation, route }) => {
               <TouchableOpacity
                 activeOpacity={0.6}
                 onPress={() => {
-                  // console.log("pokemon", item.url.split("/")[6]);
                   navigation.navigate("Details", {
                     id: item.url.split("/")[6],
                     name: item.name,
@@ -131,7 +118,9 @@ export const HomeScreen = ({ navigation, route }) => {
                 endIcon: <CheckIcon size="1" />,
               }}
               mt={1}
-              onValueChange={(itemValue) => setPageSize(itemValue)}
+              onValueChange={(itemValue) => {
+                setPageSize(parseInt(itemValue));
+              }}
             >
               <Select.Item label="10" value="10" />
               <Select.Item label="15" value="15" />

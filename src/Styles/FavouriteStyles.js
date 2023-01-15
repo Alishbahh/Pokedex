@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
     name: {
       fontSize: 35,
       alignSelf: "center",
-      fontStyle: "italic",
+
       fontWeight: "bold",
       textTransform: "capitalize",
       color: "white",

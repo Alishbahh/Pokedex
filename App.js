@@ -6,8 +6,11 @@ import {NavigationContainer} from '@react-navigation/native';
 import { NativeBaseProvider, Box } from 'native-base';
 import { Provider } from "react-redux"
 import store from "./src/Store/store"
+import {LogBox} from 'react-native';
+
 
 export default function App() {
+  LogBox.ignoreAllLogs();
   return (
     <Provider store={store}>
     <NavigationContainer>

@@ -11,7 +11,7 @@ import styles from "../Styles/DetailsStyles";
 
 export const Details = ({ navigation, route }) => {
   const dispatch = useDispatch();
-  console.log("route.params.favorite", route.params.fav);
+
   const id = route.params.id;
   const [pokemonDetails, setPokemonDetails] = useState({});
   const [types, setTypes] = useState([]);
@@ -42,11 +42,9 @@ export const Details = ({ navigation, route }) => {
   const handleFavourite = () => {
     // Adding the pokemon to Favourites if fav=false and removing it if fav=true
     if (fav) {
-      console.log("Removing Fav", route.params.id);
       dispatch(removeFromFav(route.params.id));
       setFav(false);
     } else {
-      console.log("Adding Fav");
       dispatch(addToFav(pokemon));
       setFav(true);
     }

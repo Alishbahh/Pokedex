@@ -39,8 +39,6 @@ const styles = StyleSheet.create({
       width: "100%",
       position: "absolute",
       bottom: 0,
-      // borderTopLeftRadius: 20,
-      // borderTopRightRadius: 20,
       borderRadius: 20,
     },
     pagesize: {

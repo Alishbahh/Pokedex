@@ -7,7 +7,6 @@ import { useNavigation } from "@react-navigation/native";
 import { FlatList } from "react-native-gesture-handler";
 import { PokemonCard } from "../Components/PokemonCard";
 import styles from "../Styles/FavouriteStyles";
-
 import { getPokemonDetails } from "../API/API";
 import { LinearGradient } from "expo-linear-gradient";
 import { CardColours } from "../assets/colors";
@@ -22,8 +21,6 @@ export const Favourites = (props) => {
   const [weight, setWeight] = useState(0);
 
   const HeightWeightConversion = (height, weight) => {
-    // console.log("height", height);
-    // console.log("weight", weight);
     setHeight((height / 3.28084).toFixed(2));
     setWeight((weight / 10).toFixed(2));
   };
@@ -117,7 +114,7 @@ export const Favourites = (props) => {
                   <Image
                     style={styles.img}
                     source={{
-                      uri: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png`,
+                      uri: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonDetails.id}.png`,
                     }}
                     alt="Pokemon"
                   />
